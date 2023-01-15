@@ -10,5 +10,8 @@ export const routes = [
     {
         path: "*",
         component: NotFound,
+        beforeEnter: (to, from, next) => {
+            next("/kanban-board");
+        },
     },
 ];

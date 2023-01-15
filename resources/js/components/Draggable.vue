@@ -10,6 +10,7 @@
         >
             <div
                 class="border list-group-item item m-1"
+                style="background-color: rgb(255, 247, 235)"
                 v-for="card in cards"
                 :key="card.id"
             >

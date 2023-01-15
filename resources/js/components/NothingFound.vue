@@ -1,7 +1,8 @@
 <template>
-    <div class="m-4 d-flex justify-content-center align-items-center h-100">
-        <img src="../images/nothing-found.svg" />
-        <span> No Columns Found, Create new ones to view them. </span>
+    <div v-if="!$store.state.columns.length" class="simple-text nothing-found">
+        <span>
+            {{ "No Columns Found, Create new ones to view them. :)" }}
+        </span>
     </div>
 </template>
 
@@ -19,5 +20,22 @@ img {
 }
 span {
     font-weight: bold;
+}
+.simple-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nothing-found {
+    margin-top: 15%;
+    border: 1px solid;
+    border-radius: 7px;
+    border-style: dashed;
+    border-color: gray;
+    background-color: blanchedalmond;
+    padding: 25px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
 }
 </style>
