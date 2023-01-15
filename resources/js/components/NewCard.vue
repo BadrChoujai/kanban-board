@@ -21,8 +21,12 @@
                     name="description"
                 ></textarea>
             </div>
-            <button class="btn btn-primary m-2" @click="createOrUpdate">
-                Submit
+            <button
+                class="btn-create-update m-2"
+                @click="createOrUpdate"
+                :disabled="!currentModalCard.title"
+            >
+                {{ actionIsCreate ? "Create Card" : "Update Card" }}
             </button>
         </div>
     </div>
@@ -34,7 +38,7 @@ import { mapActions, mapState } from "vuex";
 export default {
     data() {
         return {
-            colId: this.$store.state.selectedColumnId
+            colId: this.$store.state.selectedColumnId,
         };
     },
     beforeDestroy() {
@@ -83,3 +87,14 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.btn-create-update {
+    color: black;
+    padding: 10px;
+    background-color: rgb(255, 247, 235);
+    outline: none;
+    border-color: lightslategrey;
+    border-radius: 5px;
+}
+</style>

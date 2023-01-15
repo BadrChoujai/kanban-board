@@ -19,7 +19,7 @@ export default {
 
     /**
      * update the selected card
-     * @param {*} payload 
+     * @param {*} payload
      */
     UPDATE_CARD({ commit, state }, payload) {
         commit("UPDATE_CARD", payload);
@@ -27,8 +27,8 @@ export default {
 
     /**
      * get all columns by filters
-     * @param {*} payload 
-     * @returns 
+     * @param {*} payload
+     * @returns
      */
     GET_ALL_COLUMNS({ commit, state }, payload) {
         return Columns.getColumns(payload).then(({ status, data }) => {
@@ -38,8 +38,8 @@ export default {
 
     /**
      * create a column
-     * @param {*} payload 
-     * @returns 
+     * @param {*} payload
+     * @returns
      */
     CREATE_COLUMN({ commit, state }, payload) {
         return Columns.create(payload).then(({ status, data }) => {
@@ -55,33 +55,27 @@ export default {
 
     /**
      * delete a column
-     * @param {*} payload 
-     * @returns 
+     * @param {*} payload
+     * @returns
      */
     DELETE_COLUMN({ commit, state }, payload) {
         return Columns.delete(payload).then(({ status, data }) => {
             if (status !== 200) {
                 return console.error("couldn't delete column");
             }
-
-            console.log("column deleted successfully");
         });
     },
 
     /**
      * save all columns
-     * @param {*} payload 
-     * @returns 
+     * @param {*} payload
+     * @returns
      */
     SAVE_COLUMNS({ commit, state }, payload) {
         return Columns.storeColumns({ data: state.columns }).then(
             ({ status, data }) => {
                 if (status !== 200) {
                     return console.error("couldn't save columns");
-                }
-
-                if (data) {
-                    console.log("column saved successfully");
                 }
             }
         );
